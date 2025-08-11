@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- ====== Booking Container ====== -->
+<div class="booking-container">
+  <div class="booking-header">
+    <h2>Avengers: Endgame</h2>
+    <p>PVR Cinemas, Indore | 7:00 PM</p>
+  </div>
+
+  <!-- Screen -->
+  <div class="screen"></div>
+  <p class="screen-text">Screen This Way</p>
+
+  <!-- Seats -->
+  <div class="seats" id="seatLayout">
+    <!-- JS will generate seats -->
+  </div>
+
+  <!-- Booking Summary -->
+  <div class="summary">
+    <p>Selected Seats: <span id="count">0</span></p>
+    <p>Total Price: ₹<span id="total">0</span></p>
+    <button onclick="confirmBooking()">Confirm Booking</button>
+  </div>
+</div>
+
+<!-- ====== JavaScript ====== -->
+{% load static %}
+<script src="{% static 'js/booking.js' %}"></script>
+
+{% endblock %}

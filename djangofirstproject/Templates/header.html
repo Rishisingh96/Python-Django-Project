@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<!-- <link rel="stylesheet" href="{% static 'css/login.css' %}" /> -->
+<!-- ====== Header ====== -->
+<header>
+  <h1>🎥 RishiTheatre</h1>
+  <nav>
+    <ul>
+      <!-- {{request.path}} -->
+      <!-- {% url 'home' as url %} -->
+      <li class="{% if request.path == '/' %}active{% endif %}">
+        <a href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="{% if request.path == '/booking-us/' %}active{% endif %}">
+        <a href="{% url 'booking' %}">Booking</a>
+      </li>
+      <li class="{% if request.path == '/movies-us/' %}active{% endif %}">
+        <a href="{% url 'movies' %}">Movies</a>
+      </li>
+      <li class="{% if request.path == '/theatres-us/' %}active{% endif %}">
+        <a href="{% url 'theatres' %}">Theatres</a>
+      </li>
+      <li class="{% if request.path == '/signup_login-us/' %}active{% endif %}">
+        <a href="{% url 'signup_login' %}">Signup/Login</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- <header>
+  <h1>🎥 RishiTheatre</h1>
+  <nav>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'booking' %}">Booking</a></li>
+      <li><a href="{% url 'movies' %}">Movies</a></li>
+      <li><a href="{% url 'theatres' %}">Theatres</a></li>
+      <li><a href="{% url 'signup_login' %}">Signup/Login</a></li>
+    </ul>
+  </nav>
+</header> -->

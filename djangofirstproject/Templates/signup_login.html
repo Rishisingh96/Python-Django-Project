@@ -1,0 +1,78 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <!-- Login Form -->
+  <div id="loginForm">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email" id="loginEmail" required />
+    <input type="password" placeholder="Password" id="loginPassword" required />
+    <button onclick="login()">Login</button>
+    <p class="toggle-link" onclick="toggleForms()">
+      Don't have an account? Sign Up
+    </p>
+  </div>
+
+  <!-- Signup Form -->
+  <div id="signupForm" class="hidden">
+    <h2>Sign Up</h2>
+    <input type="text" placeholder="Full Name" id="signupName" required />
+    <input type="email" placeholder="Email" id="signupEmail" required />
+    <input
+      type="password"
+      placeholder="Password"
+      id="signupPassword"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      id="signupConfirmPassword"
+      required
+    />
+    <button onclick="signup()">Sign Up</button>
+    <p class="toggle-link" onclick="toggleForms()">
+      Already have an account? Login
+    </p>
+  </div>
+</div>
+
+<script>
+  function toggleForms() {
+    document.getElementById("loginForm").classList.toggle("hidden");
+    document.getElementById("signupForm").classList.toggle("hidden");
+  }
+
+  function login() {
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
+    if (email && password) {
+      alert(`Logged in as ${email}`);
+    } else {
+      alert("Please fill in all fields.");
+    }
+  }
+
+  function signup() {
+    let name = document.getElementById("signupName").value;
+    let email = document.getElementById("signupEmail").value;
+    let password = document.getElementById("signupPassword").value;
+    let confirmPassword = document.getElementById(
+      "signupConfirmPassword"
+    ).value;
+
+    if (!name || !email || !password || !confirmPassword) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    alert(`Account created for ${name}`);
+    toggleForms();
+  }
+</script>
+
+{% endblock %}

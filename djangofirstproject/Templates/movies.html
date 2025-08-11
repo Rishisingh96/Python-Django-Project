@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- ====== Search Bar ====== -->
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search movies..." />
+  <button onclick="searchMovies()">Search</button>
+</div>
+
+<!-- ====== Movies Grid ====== -->
+<section class="movies-grid" id="moviesList">
+  <!-- Example Movie Cards -->
+  <div class="movie-card">
+    <img
+      src="https://m.media-amazon.com/images/I/81Ai5oWJ0rL._AC_UF1000,1000_QL80_.jpg"
+      alt="Movie 1"
+    />
+    <div class="movie-info">
+      <h3>Avengers: Endgame</h3>
+      <p>Action / Adventure</p>
+    </div>
+  </div>
+  <div class="movie-card">
+    <img
+      src="https://m.media-amazon.com/images/I/81VStYnDGrL._AC_UF1000,1000_QL80_.jpg"
+      alt="Movie 2"
+    />
+    <div class="movie-info">
+      <h3>Interstellar</h3>
+      <p>Sci-Fi / Drama</p>
+    </div>
+  </div>
+  <div class="movie-card">
+    <img
+      src="https://m.media-amazon.com/images/I/81r8JazkvKL._AC_UF1000,1000_QL80_.jpg"
+      alt="Movie 3"
+    />
+    <div class="movie-info">
+      <h3>Joker</h3>
+      <p>Drama / Thriller</p>
+    </div>
+  </div>
+  <div class="movie-card">
+    <img
+      src="https://m.media-amazon.com/images/I/91z5nD1EnfL._AC_UF1000,1000_QL80_.jpg"
+      alt="Movie 4"
+    />
+    <div class="movie-info">
+      <h3>Inception</h3>
+      <p>Sci-Fi / Thriller</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== JavaScript ====== -->
+<script>
+  function searchMovies() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let movies = document.querySelectorAll(".movie-card");
+
+    movies.forEach((movie) => {
+      let title = movie.querySelector("h3").innerText.toLowerCase();
+      if (title.includes(input)) {
+        movie.style.display = "block";
+      } else {
+        movie.style.display = "none";
+      }
+    });
+  }
+</script>
+
+{% endblock %}

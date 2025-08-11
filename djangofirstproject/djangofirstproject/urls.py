@@ -21,7 +21,18 @@ from djangofirstproject import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),  # Root URL (homepage)
-    path('about-us/',views.aboutUs),
+    path('movies-us/', views.movies, name='movies'),
+    path('theatres-us/', views.theatres, name='theatres'),
+    path('booking-us/', views.booking, name='booking'),
+    path('signup_login-us/', views.signup_login, name='signup_login'),
+    
+    
+    # path('about-us/',views.aboutUs),
+    # path('course/', views.course),
+    # path('course/<int:courseid>',views.courseDetails),  // only integer
+    # path('course/<str:courseid>',views.courseDetails), // only String
+    # path('course/<slug:courseid>',views.courseDetails), // only slug rishi-singh
+    # path('course/<courseid>',views.courseDetails),  # all type of url allowed When you not know datatype 
 ]
 
 

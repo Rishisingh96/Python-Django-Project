@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theatres - MyTheatre</title>
+    <style>
+      /* ====== Global Styles ====== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        background-color: #111;
+        color: white;
+      }
+
+      /* ====== Header ====== */
+      header {
+        background: #1f1f1f;
+        padding: 15px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      header h1 {
+        font-size: 24px;
+        color: #ff4d4d;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        padding: 5px 10px;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        background-color: #ff4d4d;
+        border-radius: 5px;
+      }
+
+      /* ====== Search Bar ====== */
+      .search-bar {
+        max-width: 800px;
+        margin: 30px auto;
+        display: flex;
+        gap: 10px;
+        padding: 0 20px;
+      }
+      .search-bar input {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .search-bar button {
+        background: #ff4d4d;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        color: white;
+        transition: 0.3s;
+      }
+      .search-bar button:hover {
+        background: #ff1a1a;
+      }
+
+      /* ====== Theatre Grid ====== */
+      .theatres-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 0 20px 40px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .theatre-card {
+        background: #1f1f1f;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s;
+      }
+      .theatre-card:hover {
+        transform: scale(1.05);
+      }
+      .theatre-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      .theatre-info {
+        padding: 15px;
+      }
+      .theatre-info h3 {
+        color: #ff4d4d;
+        margin-bottom: 8px;
+      }
+      .theatre-info p {
+        font-size: 14px;
+        color: #bbb;
+        margin-bottom: 6px;
+      }
+      .showtimes {
+        margin-top: 10px;
+      }
+      .showtime {
+        display: inline-block;
+        background: #333;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 13px;
+        margin: 3px;
+        color: #fff;
+        border: 1px solid #ff4d4d;
+        transition: 0.3s;
+      }
+      .showtime:hover {
+        background: #ff4d4d;
+      }
+
+      /* ====== Footer ====== */
+      footer {
+        background: #1f1f1f;
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+        color: #bbb;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ====== Header ====== -->
+    <header>
+      <h1>🎥 MyTheatre</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="theatres.html">Theatres</a></li>
+          <li><a href="users.html">Users</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ====== Search Bar ====== -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search theatres..." />
+      <button onclick="searchTheatres()">Search</button>
+    </div>
+
+    <!-- ====== Theatres Grid ====== -->
+    <section class="theatres-grid" id="theatreList">
+      <div class="theatre-card">
+        <img
+          src="https://content.jdmagicbox.com/comp/def_content/cinema-halls/default-cinema-halls-6.jpg"
+          alt="Theatre 1"
+        />
+        <div class="theatre-info">
+          <h3>PVR Cinemas</h3>
+          <p>MG Road, Indore</p>
+          <p>4 Screens | Dolby Atmos</p>
+          <div class="showtimes">
+            <span class="showtime">10:00 AM</span>
+            <span class="showtime">1:00 PM</span>
+            <span class="showtime">4:00 PM</span>
+            <span class="showtime">7:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="theatre-card">
+        <img
+          src="https://content.jdmagicbox.com/comp/def_content/cinema-halls/default-cinema-halls-1.jpg"
+          alt="Theatre 2"
+        />
+        <div class="theatre-info">
+          <h3>INOX</h3>
+          <p>Treasure Island Mall, Indore</p>
+          <p>3 Screens | 3D Available</p>
+          <div class="showtimes">
+            <span class="showtime">9:30 AM</span>
+            <span class="showtime">12:30 PM</span>
+            <span class="showtime">3:30 PM</span>
+            <span class="showtime">6:30 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="theatre-card">
+        <img
+          src="https://content.jdmagicbox.com/comp/def_content/cinema-halls/default-cinema-halls-3.jpg"
+          alt="Theatre 3"
+        />
+        <div class="theatre-info">
+          <h3>Cinepolis</h3>
+          <p>Phoenix Citadel Mall, Indore</p>
+          <p>5 Screens | Recliner Seats</p>
+          <div class="showtimes">
+            <span class="showtime">11:00 AM</span>
+            <span class="showtime">2:00 PM</span>
+            <span class="showtime">5:00 PM</span>
+            <span class="showtime">8:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer>
+      <p>© 2025 MyTheatre. All rights reserved.</p>
+    </footer>
+
+    <!-- ====== JavaScript ====== -->
+    <script>
+      function searchTheatres() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let theatres = document.querySelectorAll(".theatre-card");
+
+        theatres.forEach((theatre) => {
+          let name = theatre.querySelector("h3").innerText.toLowerCase();
+          let location = theatre.querySelector("p").innerText.toLowerCase();
+          if (name.includes(input) || location.includes(input)) {
+            theatre.style.display = "block";
+          } else {
+            theatre.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
