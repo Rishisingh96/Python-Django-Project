@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Thank You</title>
+    <style>
+      body {
+        font-family: Arial;
+        text-align: center;
+        padding: 60px;
+      }
+      .box {
+        display: inline-block;
+        padding: 24px;
+        border: 1px solid #e6e6e6;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>धन्यवाद!</h2>
+      <p>आपका फॉर्म जमा हो गया है।</p>
+      <p>{{ output }}</p>
+      <a href="home.html">वापस जाएं</a>
+    </div>
+  </body>
+</html>
+{% endblock %}

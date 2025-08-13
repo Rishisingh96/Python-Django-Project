@@ -25,6 +25,11 @@ urlpatterns = [
     path('theatres-us/', views.theatres, name='theatres'),
     path('booking-us/', views.booking, name='booking'),
     path('signup_login-us/', views.signup_login, name='signup_login'),
+    path('userform/', views.userForm),
+    path('submitform/', views.submitform, name='submitform'),
+    path('thankyou/', views.Thankyou),
+    path('calculator/', views.calculator)
+    
     
     
     # path('about-us/',views.aboutUs),
