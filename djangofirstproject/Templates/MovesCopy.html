@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<!-- ====== Search Bar ====== -->
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search movies..." />
+  <button onclick="searchMovies()">Search</button>
+</div>
+
+<!-- ====== Movies Grid ====== -->
+<section class="movies-grid" id="moviesList">
+  <!-- Example Movie Cards -->
+  <div class="movie-card">
+    <img src="{% static 'img/Avengers.jpg' %}" alt="Movie 1" />
+    <div class="movie-info">
+      <h3>Avengers: Endgame</h3>
+      <p>Action / Adventure</p>
+    </div>
+  </div>
+
+  <div class="movie-card">
+    <img src="{% static 'img/Interstellar.webp' %}" alt="Movie 2" />
+    <div class="movie-info">
+      <h3>Interstellar</h3>
+      <p>Sci-Fi / Drama</p>
+    </div>
+  </div>
+  <div class="movie-card">
+    <img src="{% static 'img/War 2.jpg' %}" alt="Movie 3" />
+    <div class="movie-info">
+      <h3>War 2</h3>
+      <p>Drama / Action</p>
+    </div>
+  </div>
+  <div class="movie-card">
+    <img src="{% static 'img/Inception.webp' %}" alt="Movie 4" />
+    <div class="movie-info">
+      <h3>Inception</h3>
+      <p>Sci-Fi / Thriller</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== JavaScript ====== -->
+<script>
+  function searchMovies() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let movies = document.querySelectorAll(".movie-card");
+
+    movies.forEach((movie) => {
+      let title = movie.querySelector("h3").innerText.toLowerCase();
+      if (title.includes(input)) {
+        movie.style.display = "block";
+      } else {
+        movie.style.display = "none";
+      }
+    });
+  }
+</script>
+
+{% endblock %}

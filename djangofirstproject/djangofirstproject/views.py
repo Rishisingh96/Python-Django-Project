@@ -1,9 +1,14 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import UsersForm
+from service.models import Service
 
 
 # def home(request):
+#     ServiceData = Service.objects.all()
+#     for a in ServiceData:
+#         print(a.service_icon)
+#     print(Service)
 #     data = {
 #         'title':'Home Page',
 #         'rishi':"Welcome to rishi app",
@@ -21,7 +26,14 @@ def home(request):
 
 
 def movies(request):
-    return render(request, "movies.html")
+    serviceData = Service.objects.all()
+    # for a in ServiceData:
+    #     print(a.service_icon)
+    # print(Service)
+    data = {
+        'serviceData' : serviceData
+    }
+    return render(request, "movies.html", data)
 
 def theatres(request):
     return render(request, "theatres.html")
