@@ -37,13 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Tumhare apps
-    'service',
-
-    # Cloudinary apps agar use kar rahe ho
+    # Cloudinary apps
     'cloudinary',
     'cloudinary_storage',
-    
+    # Your custom apps
+    'service',
 ]
 
 MIDDLEWARE = [
@@ -121,31 +119,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 # Static files
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR, "static"
 ]
-# ✅ Media files
+
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-INSTALLED_APPS = [
-    # Django default apps...
-    'cloudinary',
-    'cloudinary_storage',
-    'service',  # tumhara app
-]
-
+# Cloudinary Configuration
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dutndzsgz',
     'API_KEY': '955384118878341',
