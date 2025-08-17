@@ -17,7 +17,7 @@
     <div class="movie-info">
       <h3>{{ service.service_title }}</h3>
       <p>{{ service.service_genre }}</p>
-      <p>{{ service.service_long_des }}</p>
+      <p>{{ service.service_long_des | safe }}</p>
     </div>
   </div>
   {% endfor %}

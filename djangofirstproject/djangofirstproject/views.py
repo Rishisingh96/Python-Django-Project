@@ -26,10 +26,11 @@ def home(request):
 
 
 def movies(request):
-    serviceData = Service.objects.all()
-    # for a in ServiceData:
-    #     print(a.service_icon)
-    # print(Service)
+    # serviceData = Service.objects.all() # all data
+    serviceData = Service.objects.all().order_by('service_title') # order by title
+    # serviceData = Service.objects.all().order_by('-service_title') # order by title in reverse order
+    # serviceData = Service.objects.all().order_by('-service_title')[:2] # order by title in reverse order and limit 2
+    # serviceData = Service.objects.all().order_by('-service_title')[2:4] # order by title in reverse order and limit 2
     data = {
         'serviceData' : serviceData
     }
