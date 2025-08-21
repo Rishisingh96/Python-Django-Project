@@ -43,8 +43,12 @@ INSTALLED_APPS = [
     # Cloudinary apps
     'cloudinary',
     'cloudinary_storage',
+
     # Your custom apps
     'service',
+
+    'tinymce',
+    'news'
 ]
 
 MIDDLEWARE = [
@@ -153,4 +157,34 @@ CLOUDINARY_URL = 'cloudinary://955384118878341:MJutVg5lQHkSlaucwSmkDEZ7LzM@dutnd
 # Media files configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
+# TinyMCE Configuration
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 360,
+    'width': 'auto',
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'silver',
+    'plugins': '''
+        save link image media preview codesample contextmenu
+        table code lists fullscreen insertdatetime nonbreaking
+        contextmenu directionality searchreplace wordcount visualblocks
+        visualchars code fullscreen autolink lists charmap print preview
+        hr anchor pagebreak spellchecker
+    ''',
+    'toolbar1': '''
+        fullscreen preview bold italic underline | fontselect,
+        fontsizeselect | forecolor backcolor | alignleft aligncenter |
+        alignright alignjustify | indent outdent | bullist numlist table |
+        | link image media | codesample |
+    ''',
+    'toolbar2': '''
+        visualblocks visualchars |
+        charmap hr pagebreak | nonbreaking anchor | code |
+    ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+}
 

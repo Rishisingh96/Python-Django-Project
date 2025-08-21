@@ -31,8 +31,7 @@ urlpatterns = [
     path('userform/', views.userForm),
     path('submitform/', views.submitform, name='submitform'),
     path('thankyou/', views.Thankyou),
-    path('calculator/', views.calculator)
-    
+    path('calculator/', views.calculator),
     
     
     # path('about-us/',views.aboutUs),
